@@ -1,4 +1,5 @@
 import input_parser
+import output_writer
 
 
 n, h, s = input_parser.parse_input()

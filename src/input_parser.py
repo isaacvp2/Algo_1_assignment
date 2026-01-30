@@ -43,7 +43,7 @@ def parse_input():
             current_prefs = []
             for val in parts:
                 try:
-                    current_prefs.append(int(val))
+                    current_prefs.append(int(val) - 1)
                 except ValueError:
                     raise ValueError(f"Line {i+1}: Non-integer value '{val}' found.")
 
@@ -52,7 +52,7 @@ def parse_input():
                  raise ValueError(f"Line {i+1}: Preference list contains duplicates.")
             
             # Check bounds (1 to n)
-            if any(p < 1 or p > n for p in current_prefs):
+            if any(p < 0 or p >= n for p in current_prefs):
                  raise ValueError(f"Line {i+1}: Values must be between 1 and {n}.")
 
             hospital_prefs.append(current_prefs)
@@ -67,14 +67,14 @@ def parse_input():
             current_prefs = []
             for val in parts:
                 try:
-                    current_prefs.append(int(val))
+                    current_prefs.append(int(val) - 1)
                 except ValueError:
                     raise ValueError(f"Line {i+1}: Non-integer value '{val}' found.")
 
             if len(set(current_prefs)) != n:
                  raise ValueError(f"Line {i+1}: Preference list contains duplicates.")
             
-            if any(p < 1 or p > n for p in current_prefs):
+            if any(p < 0 or p >= n for p in current_prefs):
                  raise ValueError(f"Line {i+1}: Values must be between 1 and {n}.")
 
             student_prefs.append(current_prefs)
