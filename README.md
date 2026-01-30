@@ -50,6 +50,26 @@ The verifier requires 2 inputs, both passed in through stdin.
   (cat data/input/given_example.in; echo ""; cat data/output/given_example.out) | python3 src/verifier.py
   ```
 
+## Assumptions
+
+
+### Input Handling
+
+* **Strict Formatting:** The input parser is strict. It expects exactly $2n + 1$ non-empty lines. Blank lines in the middle of preference lists will cause an error (to prevent parsing malformed data). However, you can include a variable number of spaces between each number on a line. For example "1 2 3 4\n" is parsed the same as "1    2 3         4\n".
+* **Whitespace:** Trailing newlines at the very end of the file are handled gracefully, but multiple trailing blank lines are rejected.
+* **Permutations:** It is assumed (and checked) that every preference list is a valid permutation of numbers $1 \dots n$.
+
+### Indexing
+
+* **Internal:** The code converts these to **0-based indexing** for processing and converts them back to 1-based for output.
+
+### Execution Environment
+
+* It is assumed the user runs commands from the root of the repository (e.g., `python3 src/matcher.py` rather than `cd src; python3 matcher.py`).
+
+
+
+
 
 
 
