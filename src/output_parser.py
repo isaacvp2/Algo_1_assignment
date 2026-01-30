@@ -1,9 +1,7 @@
 import sys
 
 # Raises ValueError if invalid input, otherwise returns list of matchings
-def parse_output():
-
-    raw_lines = sys.stdin.readlines()
+def parse_output(raw_lines):
     
     matchings = []
 

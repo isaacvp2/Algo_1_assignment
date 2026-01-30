@@ -51,22 +51,27 @@ def gale_shapley(n, hospital_prefs, student_prefs):
 
 def main():
     try:
-        n, hospital_prefs, student_prefs = input_parser.parse_input()
+        raw_lines = sys.stdin.readlines()
+        n, hospital_prefs, student_prefs, _ = input_parser.parse_input(raw_lines)
+
+        if n == None and hospital_prefs == None and student_prefs == None:
+            print("Program stopped because of invalid input.")
+            return
         
-        if n is not None:
-            student_partners = gale_shapley(n, hospital_prefs, student_prefs)
-            
-            hospital_partners = [-1] * n
-            for s, h in enumerate(student_partners):
-                if h != -1:
-                    hospital_partners[h] = s
-            
-            matchings = []
-            for h, s in enumerate(hospital_partners):
-                if s != -1:
-                    matchings.append([h + 1, s + 1])
-            
-            output_writer.write_output(matchings)
+
+        student_partners = gale_shapley(n, hospital_prefs, student_prefs)
+        
+        hospital_partners = [-1] * n
+        for s, h in enumerate(student_partners):
+            if h != -1:
+                hospital_partners[h] = s
+        
+        matchings = []
+        for h, s in enumerate(hospital_partners):
+            if s != -1:
+                matchings.append([h + 1, s + 1])
+        
+        output_writer.write_output(matchings)
             
     except Exception as e:
         sys.stderr.write(f"Error: {e}\n")

@@ -1,12 +1,10 @@
 import sys
 
-def parse_input():
-
-    raw_lines = sys.stdin.readlines()
+def parse_input(raw_lines):
 
     if not raw_lines:
         print("Input is empty.")
-        return None, None, None
+        return None, None, None, None
 
     try:
         lines = []
@@ -27,11 +25,6 @@ def parse_input():
             if "positive" in str(e):
                 raise e
             raise ValueError(f"Line 1: '{lines[0]}' is not a valid integer.")
-
-
-        expected_lines = 2 * n + 1
-        if len(lines) != expected_lines:
-            raise ValueError(f"Expected {expected_lines} lines, found {len(lines)}.")
         
         hospital_prefs = []
         student_prefs = []
@@ -81,8 +74,12 @@ def parse_input():
 
             student_prefs.append(current_prefs)
 
-        return n, hospital_prefs, student_prefs
+        output_lines = []
+        if (len(lines) > 2 * n + 1):
+            output_lines = lines[(2 * n + 1):]
+
+        return n, hospital_prefs, student_prefs, output_lines
 
     except ValueError as e:
         print(f"Input Error: {e}")
-        return None, None, None
+        return None, None, None, None
