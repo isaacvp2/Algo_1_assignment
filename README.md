@@ -1,3 +1,3 @@
 # Algo_1_assignment
 
-![Alt text](scalability_graph_avg.png)
+![Alt text](graphs/scalability_graph_avg.png)
