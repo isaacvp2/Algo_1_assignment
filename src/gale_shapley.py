@@ -56,9 +56,14 @@ def main():
         if n is not None:
             student_partners = gale_shapley(n, hospital_prefs, student_prefs)
             
-            matchings = []
+            hospital_partners = [-1] * n
             for s, h in enumerate(student_partners):
                 if h != -1:
+                    hospital_partners[h] = s
+            
+            matchings = []
+            for h, s in enumerate(hospital_partners):
+                if s != -1:
                     matchings.append([h + 1, s + 1])
             
             output_writer.write_output(matchings)
