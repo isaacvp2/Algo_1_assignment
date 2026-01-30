@@ -8,23 +8,25 @@ def parse_input():
         print("Input is empty.")
         return None, None, None
 
-
-    lines = []
-    for i, line in enumerate(raw_lines):
-        stripped_line = line.strip()
-        
-        # Check if a line just contains whitespaces or a newline
-        if not stripped_line:
-            raise ValueError(f"Line {i+1} is empty or contains only whitespace.")
-            
-        lines.append(stripped_line)
-
     try:
+        lines = []
+        for i, line in enumerate(raw_lines):
+            stripped_line = line.strip()
+            
+            # Check if a line just contains whitespaces or a newline
+            if not stripped_line:
+                raise ValueError(f"Line {i+1} is empty or contains only whitespace.")
+                
+            lines.append(stripped_line)
 
         try:
             n = int(lines[0])
-        except ValueError:
-            raise ValueError(f"Line 1: '{lines[0]}' is not an integer.")
+            if n < 1:
+                raise ValueError("n must be a positive integer.")
+        except ValueError as e:
+            if "positive" in str(e):
+                raise e
+            raise ValueError(f"Line 1: '{lines[0]}' is not a valid integer.")
 
 
         expected_lines = 2 * n + 1
