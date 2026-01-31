@@ -55,7 +55,7 @@ The verifier requires 2 inputs, both passed in through stdin.
 ### Input Handling
 
 * **Strict Formatting:** The input parser is strict. It expects exactly $2n + 1$ non-empty lines. Blank lines in the middle of preference lists will cause an error (to prevent parsing malformed data). However, you can include a variable number of spaces between each number on a line.
-* **Whitespace:** Trailing newlines at the very end of the file are handled gracefully, but multiple trailing blank lines are rejected.
+* **Whitespace: DO NOT INCLUDE NEWLINES AT THE END OF INPUT FILES**
 * **Permutations:** It is assumed (and checked) that every preference list is a valid permutation of numbers $1 \dots n$.
 
 ### Indexing
