@@ -67,5 +67,11 @@ The verifier requires 2 inputs, both passed in through stdin.
 * It is assumed the user runs commands from the root of the repository (e.g., `python3 src/matcher.py` rather than `cd src; python3 matcher.py`).
 
 ---
+### TASK C:
 
 ![Alt text](graphs/scalability_graph_avg.png)
+![Alt text](graphs/verifier_scalability.png)
+
+* To create the graph, random preference sizes were made for increasingly larger matching sizes, and the execution time for each size was measured and averaged over 1000 trials to produce the line.
+
+* The trends in both graphs are quadratic which is expected due to both the Gale Shapley algorithm and the verifier relying on nested iterations where they iterate through each hospital and the list of preferred students for each hospital. This Gale Shapley algorithm and verifier both have a time complexity of O(N²) aligning with the results seen in the graphs.
