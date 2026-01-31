@@ -72,6 +72,6 @@ The verifier requires 2 inputs, both passed in through stdin.
 ![Alt text](graphs/scalability_graph_avg.png)
 ![Alt text](graphs/verifier_scalability.png)
 
-* To create the graph, random preference sizes were made for increasingly larger matching sizes, and the execution time for each size was measured and averaged over 1000 trials to produce the line.
+* To create the graphs, random preference sizes were made for increasingly larger matching sizes, and the execution time for each size was measured and averaged over 1000 trials to produce the lines.
 
 * The trends in both graphs are quadratic which is expected due to both the Gale Shapley algorithm and the verifier relying on nested iterations where they iterate through each hospital and the list of preferred students for each hospital. This Gale Shapley algorithm and verifier both have a time complexity of O(N²) aligning with the results seen in the graphs.
