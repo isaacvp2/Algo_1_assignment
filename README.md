@@ -11,8 +11,7 @@ Since this project is implemented in **Python 3**, there is no explicit compilat
 
 * **Prerequisites:** Python 3.6 or higher.
 * **Dependencies:**
-    * The core algorithms (`matcher.py`, `verifier.py`) use only standard libraries (`sys`, `random`, `time`).
-    * The scalability analysis (`task_c.py`) requires `matplotlib` to generate the graph.
+    * The core algorithms (`matcher.py`, `verifier.py`) use only standard libraries (`sys`).
 
 ---
 
@@ -67,10 +66,6 @@ The verifier requires 2 inputs, both passed in through stdin.
 
 * It is assumed the user runs commands from the root of the repository (e.g., `python3 src/matcher.py` rather than `cd src; python3 matcher.py`).
 
-
-
-
-
-
+---
 
 ![Alt text](graphs/scalability_graph_avg.png)
