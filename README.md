@@ -24,17 +24,17 @@ The matcher reads preference input from **stdin** and prints the resulting match
 
 * **Basic Run (Output to Terminal):**
   ```bash
-  python3 src/matcher.py < [Location of Input File]
+  python3 src/gale_shapley.py < [Location of Input File]
   ```
 
 * **Save Output to File:**
   ```bash
-  python3 src/matcher.py < [Location of Input File] > [Name of Output File]
+  python3 src/gale_shapley.py < [Location of Input File] > [Name of Output File]
   ```
 
 * **Example:**
   ```bash
-  python3 src/matcher.py < data/input/given_example.in > data/output/given_example.out
+  python3 src/gale_shapley.py < data/input/given_example.in > data/output/given_example.out
   ```
 
 ### Run the Verifier (Task B)
@@ -55,7 +55,7 @@ The verifier requires 2 inputs, both passed in through stdin.
 
 ### Input Handling
 
-* **Strict Formatting:** The input parser is strict. It expects exactly $2n + 1$ non-empty lines. Blank lines in the middle of preference lists will cause an error (to prevent parsing malformed data). However, you can include a variable number of spaces between each number on a line. For example "1 2 3 4\n" is parsed the same as "1    2 3         4\n".
+* **Strict Formatting:** The input parser is strict. It expects exactly $2n + 1$ non-empty lines. Blank lines in the middle of preference lists will cause an error (to prevent parsing malformed data). However, you can include a variable number of spaces between each number on a line.
 * **Whitespace:** Trailing newlines at the very end of the file are handled gracefully, but multiple trailing blank lines are rejected.
 * **Permutations:** It is assumed (and checked) that every preference list is a valid permutation of numbers $1 \dots n$.
 
@@ -66,7 +66,6 @@ The verifier requires 2 inputs, both passed in through stdin.
 ### Execution Environment
 
 * It is assumed the user runs commands from the root of the repository (e.g., `python3 src/matcher.py` rather than `cd src; python3 matcher.py`).
-
 
 
 
